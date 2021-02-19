@@ -1,4 +1,4 @@
-# Program: exemplo1.py
+# Program: exemplo_02.py
 # Author: Ramon R. Valeriano
 # Description: Programa simples para similiar uma conta de banco e introduzir o conseito de Orientação a Objetos
 # Developed: 18/02/2020 - 15:23
