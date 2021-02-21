@@ -1,0 +1,7 @@
+;Esta linha não deve ser impressa.
+>Esta linha deve ser impressa alinha da a direita.
+*Esta linha deve ser centralizada.
+Uma linha normal
+Outra linha normal.
+=Esta linha repetir =40 vezes.
+.Esta linha deve esperar o enter par continuar.
