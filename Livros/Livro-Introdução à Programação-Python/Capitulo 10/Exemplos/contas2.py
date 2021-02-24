@@ -1,0 +1,57 @@
+# Program: 2.py
+# Author: Ramon R. Valeriano
+# Decription: Modulo que será usado para os próximos exmplos
+# Developed: 24/02/2020 - 09:53
+
+class Conta:
+    def __init__(self, clientes, numero, saldo=0):
+        self.__clientes = clientes
+        self.__numero = numero
+        self.__saldo = 0
+        self.__operacoes = list()
+        self.deposito(saldo)
+
+    @property
+    def clientes(self):
+        return self.__clientes
+
+    @clientes.setter
+    def clintes(self, novos_clientes):
+        self.__clientes = novos_clientes
+        return self.__clientes
+
+    @property
+    def numero(self):
+        return self.__numero
+
+    @numero.setter
+    def numero(self, novo_numero):
+        self.__numero = novo_numero
+        return self.__numero
+
+    @property
+    def saldo(self):
+        return self.__saldo
+
+    def resumo(self):
+        print(f'CC número {self.__numero}, Saldo: R$ {self.__saldo}')
+
+    def saque(self, valor):
+        if self.__saldo >= valor:
+            self.__saldo-= valor
+            self.__operacoes.append(["Saque", valor])
+
+    def deposito(self, valor):
+        if valor>=0:
+            self.__saldo+=valor
+            self.__operacoes.append(["Deposito", valor])
+
+    @property
+    def extrado(self):
+        if len(self.__operacoes)>0:
+            for o in self.__operacoes:
+                print(f'{o[0]}-{o[1]}')
+            print(f'\n Saldo: {self.__saldo}')
+        else:
+            print("Não houve qualquer tipo de operação.")
+
