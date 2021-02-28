@@ -17,3 +17,4 @@ conta2 = Conta([valeriano, gabriela], 7092019, 5000)
 conta3 = Conta([joao], 123456, 456)
 conta4 = Conta([jose], 78946, 3216)
 
+print(conta3.clientes)

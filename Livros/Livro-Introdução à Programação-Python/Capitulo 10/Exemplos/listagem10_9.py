@@ -4,14 +4,28 @@
 # Developed: 27/02/2020 - 21:41
 
 class Banco:
-    def __init__(self):
+    def __init__(self, nome):
         self._nome = nome
         self.clientes = list()
         self.contas = list()
 
-    def __getitem__(self, item):
-        return self.contas.append(item)
+    @property
+    def nome(self):
+        return self.nome
 
-    
+    @nome.setter
+    def nome(self, novo_nome):
+        self._nome = novo_nome
+        return self._nome
+
+    def abre_conta(self, conta):
+        return self.contas.append(conta)
+
+    def lista_contas(self):
+        for c in self.contas:
+            c.resumo()
+
+
+
 
 

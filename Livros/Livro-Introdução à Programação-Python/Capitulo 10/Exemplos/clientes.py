@@ -5,23 +5,23 @@
 
 class Cliente:
     def __init__(self, nome, telefone):
-        self.__nome = nome
-        self.__telefone = telefone
+        self.nome = nome
+        self.telefone = telefone
 
     @property
     def nome(self):
-        return self.__nome
+        return self.nome
 
     @nome.setter
     def nome(self, novo_nome):
-        self.__nome = novo_nome
-        return self.__nome
+        self.nome = novo_nome
+        return self.nome
 
     @property
     def telefone(self):
-        return self.__telefone
+        return self.telefone
 
     @telefone.setter
     def telefone(self, novo_telefone):
-        self.__telefone = novo_telefone
-        return self.__telefone
+        self.telefone = novo_telefone
+        return self.telefone
