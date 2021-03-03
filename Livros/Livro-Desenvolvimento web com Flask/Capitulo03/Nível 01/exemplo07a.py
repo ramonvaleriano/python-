@@ -9,7 +9,7 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-@app.route('/user/name')
+@app.route('/user/<name>')
 def get_user(name):
     return render_template('user2.html', name=name)
 
