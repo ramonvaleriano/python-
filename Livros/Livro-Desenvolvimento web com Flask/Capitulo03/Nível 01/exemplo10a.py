@@ -4,8 +4,10 @@
 # Developed: 04/03/2020 - 15:55
 
 from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 
 @app.errorhandler(404)
 def pagina_nao_encontrada(e):
@@ -15,4 +17,4 @@ def pagina_nao_encontrada(e):
 def erro_servidor_interno(e):
     return render_template('500.html'), 500
 
-
+app.run()
