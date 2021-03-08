@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste de Controles</title>
+</head>
+<body>
+    {% if name %}
+        <h1>Olá, {{ name|capitalize }}</h1>
+    {% else %}
+        <h1>Olá Stranger!</h1>
+    {% endif %}
+</body>
+</html>
