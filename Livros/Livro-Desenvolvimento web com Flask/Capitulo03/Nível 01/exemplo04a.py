@@ -10,6 +10,6 @@ app = Flask(__name__)
 @app.route('/user/<name>')
 def get_user(name):
     mame = name.title()
-    return render_template('user.html', name=name)
+    return render_template('userInicial.html', name=name)
 
 app.run()
