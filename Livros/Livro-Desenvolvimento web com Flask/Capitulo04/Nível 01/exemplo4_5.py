@@ -1,9 +1,9 @@
-# Program: exemplo4_3.py
+# Program: exemplo4_5.py
 # Author: Ramon R. Valeriano
 # Description: Fazendos os programas do Capítulo 04, do nível 01
-# Developed: 09/03/2020 - 14:48
+# Developed: 09/03/2020 - 15:22
 
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, session
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 
@@ -19,19 +19,20 @@ app.config['SECRET_KEY'] = 'testandoaplicacao'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
+
 class NameForm(FlaskForm):
     name = StringField('Qual é seu nome?', validators=[DataRequired()])
     submit = SubmitField('Submeter')
 
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    name = None
     form = NameForm()
     if form.validate_on_submit():
-        name = form.name.data
-        form.name.data = ''
-    return render_template('index.html', form=form, name=name)
+        session['name'] = form.name.data
+        return redirect(url_for('index'))
+    return render_template('index.html', form=form, name=session.get('name'))
 
 @app.route('/user/<name>')
 def user(name):
