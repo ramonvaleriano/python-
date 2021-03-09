@@ -1,8 +1,7 @@
-# Prgrama: hello.py
+# Prgrama: exemplo3_13.py
 # Author: Ramon R. Valeriano
 # Description: Desensolvolvendo os Scripts do Nível 2 do Capitulo 3 do Livro.
-# Developed: 08/03/2020 - 12:53
-# Upload: 09/03/2020 - 09:28
+# Developed: 09/03/2020 - 09:29
 
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
@@ -30,4 +29,4 @@ def pagina_nao_encontrada(e):
 def erro_servidor(e):
     return render_template('500.html'), 500
 
-app.run(debug=True)
+app.run()
