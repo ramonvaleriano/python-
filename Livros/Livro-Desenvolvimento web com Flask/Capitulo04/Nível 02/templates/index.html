@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Flasky -  Home {% endblock %}
+{% import bootstrap/"wtf.html" as wtf %}
+
+{% block Title %}Flasky{% endblock %}
 
 {% block page_content %}
     <div class="page-header">
-        <h1>Olá mundo!</h1>
+        <h1>Olá, {% if name %}{{ name }}{% else %}Estranho{% endif %}!</h1>
     </div>
-    <div>
-        <p>A hora local é: {{ moment(current_time).format('LLL') }}.</p>
-        <p>Isso foi {{ moment(current_time).fromNow(refresh=True) }}.</p>
-    </div>
+    {{ wtf.form(form) }}
 {% endblock %}
