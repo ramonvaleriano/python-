@@ -5,6 +5,7 @@
 
 from flask import Flask, render_template, redirect, url_for, session
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -14,6 +15,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'quasela'
 
 bootstrap = Bootstrap(app)
+moment = Moment(app)
 
 
 class NameForm(FlaskForm):
@@ -26,7 +28,7 @@ def index():
     form = NameForm()
     if form.validate_on_submit():
         session['name'] = form.name.data
-        return redirect('index')
+        return redirect(url_for('index'))
     return render_template('index.html', form=form, name=session.get('name'))
 
 
@@ -43,3 +45,5 @@ def pagina_nao_encontrada(e):
 @app.errorhandler(500)
 def erro_servidor(e):
     return render_template('500.html'), 500
+
+app.run()
