@@ -13,3 +13,4 @@ for registro in resultado:
     print(f'Nome: {registro[0]}, Telefone: {registro[1]}')
 cursos.close()
 conexao.close()
+
