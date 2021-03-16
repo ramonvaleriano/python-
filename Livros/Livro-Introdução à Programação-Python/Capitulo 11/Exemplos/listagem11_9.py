@@ -6,6 +6,7 @@
 import sqlite3
 
 name = str(input('Digite o nome a ser procurado: '))
+name = name.strip()
 
 conexao = sqlite3.connect('agenda.db')
 cursor = conexao.cursor()
