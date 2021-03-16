@@ -12,3 +12,4 @@ for registro in cursor.execute('select * from agendaTeste'):
     print(f'Nome: {registro["nome"]} Telefone: {registro["telefone"]}')
 cursor.close()
 conexao.close()
+
