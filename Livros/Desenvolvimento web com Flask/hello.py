@@ -15,6 +15,8 @@ from wtforms.validators import DataRequired
 
 from flask_sqlalchemy import SQLAlchemy
 
+from flask_migrate import Migrate
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
@@ -27,6 +29,7 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 db = SQLAlchemy(app)
 
+migrate = Migrate(app, db)
 
 class Role(db.Model):
     __tablename__ = 'roles'
@@ -62,6 +65,11 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500.html'), 500
 
+"""
+@app.shell_context_processors
+def make_shell_context():
+    return dict(db=db, User=User, Role=Role)
+"""
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -81,5 +89,7 @@ def index():
     return render_template('index.html', form=form, name=session.get('name'),
                            know=session.get('know', False))
 
+#b.drop_all()
+#db.create_all()
+#app.run(debug=True)
 
-app.run(debug=True)
