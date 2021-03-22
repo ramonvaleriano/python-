@@ -89,7 +89,7 @@ def index():
     return render_template('index.html', form=form, name=session.get('name'),
                            know=session.get('know', False))
 
-#b.drop_all()
+#db.drop_all()
 #db.create_all()
 #app.run(debug=True)
 

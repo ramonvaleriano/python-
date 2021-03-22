@@ -91,3 +91,7 @@ print(str(User.query.filter_by(role=user_role)))
 print('\n')
 print(user_role.users.order_by(User.username).all())
 print(f'Quantidade de Usuários: {user_role.users.count()}')
+
+#db.drop_all()
+#db.create_all()
+#app.run()
