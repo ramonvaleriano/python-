@@ -1,29 +1,24 @@
-# Programa: calculadorDeDescontos_ex_cap02.py
+# Programa: calculadorDeDescontos02_ex_cap02.py
 # Author: Ramon R. Valeriano
 # Description: Modelo para apenas calculasr os descontos
 # Developed: 17/04/2021 - 08:29
+# Upadated:  21/04/2021 - 06:17
+# Updated:   21/04/2021 - 06:30
+
 
 from orcamento_ex_cap02 import Orcamento, Item
+from desconto01_ex_cap02 import Desconto_por_cinco_itens, \
+    Desconto_por_mais_de_quinhentos_reais, Sem_desconto
 
 class Calculador_de_descontos:
 
     def calcula(self, orcamento):
 
-        if orcamento.total_itens > 5:
-            desconto = orcamento.valor * 0.1
+        desconto = Desconto_por_cinco_itens(
+            Desconto_por_mais_de_quinhentos_reais(Sem_desconto())
+        ).calcula(orcamento)
 
-            return desconto
-
-        elif orcamento.valor > 500:
-            desconto = orcamento.valor * 0.07
-
-            return desconto
-
-        else:
-            desconto = orcamento.valor
-
-            return desconto
-
+        return desconto
 
 if __name__ == '__main__':
 

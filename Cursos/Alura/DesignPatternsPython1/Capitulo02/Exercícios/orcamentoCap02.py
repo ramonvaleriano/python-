@@ -1,7 +1,7 @@
 # Program: orcamento_ex_cap02.py
 # Author: Ramon R. Valeriano
 # Description: Todos os orçamentos que nós necessitamos estarão aqui
-# Developed: 17/04/2021 - 08:22
+# Developed: 21/04/2021 - 06:37
 
 class Orcamento:
 
@@ -13,9 +13,10 @@ class Orcamento:
         total = 0
         for item in self.__itens:
             total+=item
+
         return total
 
-    def itens(self):
+    def iten(self):
         return tuple(self.__itens)
 
     @property
@@ -25,7 +26,6 @@ class Orcamento:
     def adiciona_item(self, item):
         self.__itens.append(item.valor)
 
-
 class Item:
 
     def __init__(self, nome, valor):
@@ -33,9 +33,9 @@ class Item:
         self.__valor = valor
 
     @property
-    def valor(self):
-        return self.__valor
-
-    @property
     def nome(self):
         return self.__nome
+
+    @property
+    def valor(self):
+        return self.__valor
